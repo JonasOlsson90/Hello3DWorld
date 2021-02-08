@@ -111,7 +111,6 @@ public class BallTing : MonoBehaviour
         } 
     }
 
-    //Varför i helvete visas inte poängen längre??? (knappt två dygn senare) Jaaahaaaaa...
     private void Win()
     {
         CubeTing.isScoreActive = true;
@@ -121,7 +120,6 @@ public class BallTing : MonoBehaviour
         totalScore /= Convert.ToInt32((time / 2) * OnScreenText.bounce * 2);
         scoreDisplay.text = "Congratulations! \nYour Score: " + totalScore.ToString();        
         scoreUI.SetActive(true);
-        //HighScore();
         StartCoroutine(Wait(1));
     }
 
