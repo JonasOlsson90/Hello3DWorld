@@ -134,6 +134,11 @@ public class BallTing : MonoBehaviour
 
         userName = inputField.GetComponent<Text>().text;
 
+        if (userName == "" || userName == null)
+        {
+            userName = "Unknown";
+        }
+
 
         for (int i = 0; i < highScore.Length; i++)
         {
