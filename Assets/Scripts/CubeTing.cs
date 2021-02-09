@@ -59,11 +59,6 @@ public class CubeTing : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Enemy")
-        {
-            Destroy(gameObject);
-        }
-
         if (collision.gameObject.tag == "DecreaseSpeed")
         {
             speed -= 50;
