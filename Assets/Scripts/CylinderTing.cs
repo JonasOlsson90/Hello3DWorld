@@ -13,14 +13,6 @@ public class CylinderTing : MonoBehaviour
         GetComponent<Renderer>().material.color = new Color(1,0,0);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-
-
-    }
-
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "BallTing")

@@ -6,25 +6,11 @@ public class Lost : MonoBehaviour
 {
     public GameObject gameOverUI;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    //Skriv logik för vinst och någon form av poängsystem Time.time för tid
 
     public void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("BallTing"))
         {
-            //gameOverUI.SetActive(true);
             GameOver();
         }
 
@@ -33,7 +19,6 @@ public class Lost : MonoBehaviour
             CylinderTing cylinderTing = other.gameObject.GetComponent<CylinderTing>();
             if (!cylinderTing.isHit)
             {
-                //gameOverUI.SetActive(true);
                 GameOver();
             }            
         }

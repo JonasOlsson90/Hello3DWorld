@@ -15,17 +15,11 @@ public class OnScreenText : MonoBehaviour
     {
         bounce = 0;
         timeDisplay = GetComponent<Text>();
-
     }
 
     // Update is called once per frame
     void Update()
     {
-
         timeDisplay.text = bounce.ToString();
-
     }
 }
-
-
-//Ta reda på om tiden nollställs. Reversera den visade tiden istället för att använda en egen funktion när poängen räknas ut.
