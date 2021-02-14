@@ -33,6 +33,7 @@ public class BallTing : MonoBehaviour
     string pathToScores;
     string pathToNames;
     public string userName;
+    public GameObject areYouSureButtonUI;
 
     List<String> highScoreString;
     List<String> highScoreStringNames;
@@ -177,6 +178,43 @@ public class BallTing : MonoBehaviour
         File.WriteAllLines(pathToScores, highScoreString);
         File.WriteAllLines(pathToNames, highScoreStringNames);
 
+        displayHighScores();
+
+        highScoreUI.SetActive(true);
+        ButtonUI.SetActive(false);
+        InputFieldUI.SetActive(false);
+        CubeTing.isScoreActive = false;
+    }
+
+    public void areYouSure()
+    {
+        areYouSureButtonUI.SetActive(true);
+    }
+
+    public void resetHighScore()
+    {
+
+        highScoreString.Clear();
+        highScoreStringNames.Clear();
+
+        for (int i = 0; i < 10; i++)
+        {
+            highScoreString.Add("0");
+            highScoreStringNames.Add("");
+        }
+
+        File.WriteAllLines(pathToScores, highScoreString);
+        File.WriteAllLines(pathToNames, highScoreStringNames);
+
+        highScore = Array.ConvertAll(File.ReadAllLines(pathToScores), int.Parse);
+        highScoreNames = File.ReadAllLines(pathToNames);
+
+        displayHighScores();
+    }
+
+    public void displayHighScores()
+    {
+
         for (int i = 0; i < highScore.Length; i++)
         {
             switch (i)
@@ -213,10 +251,5 @@ public class BallTing : MonoBehaviour
                     break;
             }
         }
-
-        highScoreUI.SetActive(true);
-        ButtonUI.SetActive(false);
-        InputFieldUI.SetActive(false);
-        CubeTing.isScoreActive = false;
     }
 }
